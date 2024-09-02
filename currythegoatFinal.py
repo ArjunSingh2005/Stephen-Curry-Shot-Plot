@@ -29,7 +29,7 @@ if fl is not None:
     st.write(filename)
     df = pd.read_csv(filename)
 else:
-    os.chdir(r"C:\Users\mcdra\PycharmProjects\Stephen Curry Shot PLot")
+    #os.chdir(r"C:\Users\mcdra\PycharmProjects\Stephen Curry Shot PLot")
     df = pd.read_csv("stephen_curry_shots_new.csv")
 
 # Load the court image
