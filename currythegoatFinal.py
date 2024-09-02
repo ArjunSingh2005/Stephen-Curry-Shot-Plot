@@ -33,7 +33,7 @@ else:
     df = pd.read_csv("stephen_curry_shots_new.csv")
 
 # Load the court image
-court_img = Image.open('C:\\Users\\mcdra\\PycharmProjects\\Stephen Curry Shot PLot\\NBAHALFCOURTREAL.png')
+court_img = Image.open('NBAHALFCOURTREAL.png')
 
 # Rename columns for easier access (assuming they are already in the CSV)
 df.columns = ['Season', 'X_Loc', 'Y_Loc', 'Quarter', 'Time', 'Shot Type', 'Made']
