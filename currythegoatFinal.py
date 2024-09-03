@@ -155,4 +155,6 @@ with col2:  # Place the graph in the second column (right side)
 
     # Display the plot in Streamlit
     st.plotly_chart(fig)
+    # Display the plot in Streamlit
+    st.plotly_chart(fig)
 
