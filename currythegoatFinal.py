@@ -7,7 +7,7 @@ warnings.filterwarnings('ignore')
 from PIL import Image
 
 st.set_page_config(page_title="Stephen Curry Shot Plot Data", page_icon=":basketball:", layout="wide")
-st.title(":basketball: Stephen Curry Career Shot Plot by Arjun Singh ")
+st.title(":basketball: Stephen Curry Career Shot Plot by Arjun Singh :) ")
 st.markdown(
     """
     <style>
