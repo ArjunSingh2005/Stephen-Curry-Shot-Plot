@@ -23,14 +23,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-#fl = st.file_uploader(":file_folder: Upload a file", type=(["csv"]))
-#if fl is not None:
-    #filename = fl.name
-    #st.write(filename)
-    #df = pd.read_csv(filename)
-#else:
-    #os.chdir(r"C:\Users\mcdra\PycharmProjects\Stephen Curry Shot PLot")
-    df = pd.read_csv("stephen_curry_shots_new.csv")
+# Load the dataset directly
+df = pd.read_csv("stephen_curry_shots_new.csv")
 
 # Load the court image
 court_img = Image.open('NBAHALFCOURTREAL.PNG')
@@ -96,62 +90,4 @@ made_shots = filtered_df['Made'].sum()
 make_percentage = (made_shots / total_shots) * 100 if total_shots > 0 else 0
 
 # Create two columns
-col1, col2 = st.columns([0.8, 3])  # Adjust the ratios to control the space taken by each column
-
-with col1:  # Place the Make% display in the first column (left side)
-    st.markdown(f'<div class="make-percentage">Make%: {made_shots}/{total_shots} ({make_percentage:.2f}%)</div>', unsafe_allow_html=True)
-
-with col2:  # Place the graph in the second column (right side)
-    # Plotly Plot Integration
-    fig = go.Figure()
-
-    # Add the background image (the court)
-    fig.add_layout_image(
-        dict(
-            source=court_img,
-            xref="x",
-            yref="y",
-            x=0,  # Ensure the image starts at the x=0 point
-            y=47,
-            sizex=49,  # Match the sizex to the actual court dimensions (50 units)
-            sizey=47,  # Keep sizey consistent with the court height
-            sizing="stretch",
-            layer="below"
-        )
-    )
-
-    # Add missed shots
-    fig.add_trace(go.Scatter(
-        x=filtered_df[filtered_df['Made'] == False]['X_Loc'],
-        y=filtered_df[filtered_df['Made'] == False]['Y_Loc'],
-        mode='markers',
-        marker=dict(color='red', size=7, symbol='x'),
-        name='Missed Shots'
-    ))
-
-    # Add made shots
-    fig.add_trace(go.Scatter(
-        x=filtered_df[filtered_df['Made'] == True]['X_Loc'],
-        y=filtered_df[filtered_df['Made'] == True]['Y_Loc'],
-        mode='markers',
-        marker=dict(color='green', size=7),
-        name='Made Shots'
-    ))
-
-    # Set axes properties
-    fig.update_xaxes(range=[0, 50], showgrid=False, zeroline=False)
-    fig.update_yaxes(range=[0, 47], showgrid=False, zeroline=False)
-
-    # Set the figure layout
-    fig.update_layout(
-        title="Stephen Curry Shot Plot",
-        xaxis_title="Court Length",
-        yaxis_title="Court Width",
-        showlegend=True,
-        width=800,
-        height=700,
-        margin=dict(l=0, r=0, t=40, b=0)
-    )
-
-    # Display the plot in Streamlit
-    st.plotly_chart(fig)
+col1, col2 = st.columns([0.8, 3])  # Adjust the ratios to control the space
