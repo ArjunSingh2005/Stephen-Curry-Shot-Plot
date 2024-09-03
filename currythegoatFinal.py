@@ -23,12 +23,12 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-fl = st.file_uploader(":file_folder: Upload a file", type=(["csv"]))
-if fl is not None:
-    filename = fl.name
-    st.write(filename)
-    df = pd.read_csv(filename)
-else:
+#fl = st.file_uploader(":file_folder: Upload a file", type=(["csv"]))
+#if fl is not None:
+    #filename = fl.name
+    #st.write(filename)
+    #df = pd.read_csv(filename)
+#else:
     #os.chdir(r"C:\Users\mcdra\PycharmProjects\Stephen Curry Shot PLot")
     df = pd.read_csv("stephen_curry_shots_new.csv")
 
